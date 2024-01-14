@@ -10,8 +10,8 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
-      - run: docker build -t jaewonhimnae/react-test -f Dockerfile.dev .
-      - run: docker run -e CI=true jaewonhimnae/react-test npm test
+      - run: docker build -t boo0/react-test -f Dockerfile.dev .
+      - run: docker run -e CI=true boo0/react-test npm test
 
       - name: Generate deployment package
         run: zip -r deploy.zip . -x '*.git*'
